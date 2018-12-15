@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Goods from './pages/Goods';
 
 import Order from './pages/Order';
+import Customer from './pages/Customer';
 import NotFound from './pages/NotFound';
 
 const routerConfig = [
@@ -24,6 +25,11 @@ const routerConfig = [
     path: '/order',
     layout: AsideLayout,
     component: Order,
+  },
+  {
+    path: '/customer',
+    layout: AsideLayout,
+    component: Customer,
   },
   {
     path: '*',

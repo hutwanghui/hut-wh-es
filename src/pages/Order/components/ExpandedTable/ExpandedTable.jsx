@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Table, Pagination } from '@icedesign/base';
 import IceContainer from '@icedesign/container';
-import DetailTable from '../DetailTable/DetailTable';
+import BasicDetailInfo from '../BasicDetailInfo/BasicDetailInfo';
 
 const generatorData = () => {
   return Array.from({ length: 5 }).map((item, index) => {
@@ -50,7 +50,7 @@ export default class ExpandedTable extends Component {
       mode: 'single',
     };
     const detailTable = () => {
-      return <DetailTable />;
+      return <BasicDetailInfo />;
     };
 
     return (
