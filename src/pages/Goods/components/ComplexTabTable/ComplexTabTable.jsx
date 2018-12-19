@@ -14,9 +14,6 @@ import './ComplexTabTable.scss';
     // 详细请求配置请参见 https://github.com/axios/axios
     url: '/api/v1/product/list',
     params: {
-      page: 1,
-      limit: 10,
-      params: 1,
     },
     responseFormatter: (responseHandler, res, originResponse) => {
       // 做一些数据转换
@@ -30,8 +27,9 @@ import './ComplexTabTable.scss';
     },
     defaultBindingData: {
       list: [],
-      totalCount: 100,
-      pageSize: 10,
+      totalCount: 1,
+      totalPage: 1,
+      pageSize: 1,
       currPage: 1,
     },
   },
@@ -137,7 +135,7 @@ export default class ComplexTabTable extends Component {
 
   fetchData = () => {
     this.props.updateBindingData('tableData', {
-      data: this.queryCache,
+      params: this.queryCache,
     });
   };
   pic = (value, index, record) => {
@@ -202,8 +200,8 @@ export default class ComplexTabTable extends Component {
     );
   };
 
-  changePage = (currentPage) => {
-    this.queryCache.page = currentPage;
+  changePage = (currpage) => {
+    this.queryCache.page = currpage;
     this.fetchData();
   };
 
@@ -363,8 +361,10 @@ export default class ComplexTabTable extends Component {
           <div style={styles.pagination}>
             <Pagination
               current={tableData.currPage}
+              totalpage={tableData.totalPage}
               pageSize={tableData.pageSize}
               total={tableData.totalCount}
+              pageSizeList={[5, 10, 20]}
               onChange={this.changePage}
             />
           </div>
