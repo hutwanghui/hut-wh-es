@@ -1,24 +1,7 @@
-import server from './server';
-import url from './serverConfig';
+import * as productAPI from './modules/product';
+import * as userAPI from './modules/user';
 
-// 接口1方法
-export function histOpen(data) {
-  return server({
-    url: url.histOpen,
-    method: 'post',
-    dataType: 'json',
-    contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
-    data,
-  });
-}
-
-// 接口2方法
-export function histdata(data) {
-  return server({
-    url: url.histdata,
-    method: 'post',
-    dataType: 'json',
-    contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
-    data,
-  });
-}
+export default {
+  productAPI, // 商品API服务
+  userAPI, // 用户API服务
+};

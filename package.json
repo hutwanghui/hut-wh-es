@@ -60,5 +60,11 @@
   "engines": {
     "node": ">=8.0.0"
   },
-  "title": "hut-wh电商平台"
+  "title": "hut-wh电商平台",
+  "proxyConfig": {
+    "/api/v1": {
+      "enable": true,
+      "target": "http://172.27.128.17:8562"
+    }
+  }
 }

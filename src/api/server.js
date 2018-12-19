@@ -12,7 +12,7 @@ axios.create({
 axios.interceptors.request.use((config) => {
   // 得到参数中的requestname字段，用于决定下次发起请求，取消相应的  相同字段的请求
   // post和get请求方式的不同，使用三木运算处理
-  const requestName = config.method === 'post' ? config.data.requestName : config.params.requestName;
+  const requestName = config.method === 'post' ? config.data : config.params;
   // 判断，如果这里拿到上一次的requestName，就取消上一次的请求
   if (requestName) {
     if (axios[requestName] && axios[requestName].cancel) {
